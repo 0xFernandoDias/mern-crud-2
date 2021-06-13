@@ -1,22 +1,12 @@
-const router = require('express').Router()
-let User = require('../models/user.model') // It gets the "Schema from ../models"
+import express from 'express'
+import {readUsers, createUsers} from '../controllers/users.js'
 
-// "localhost:5000/users/" READ
-router.route('/').get((req, res) => { 
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json(`Error: ${err}`))
-})
+const router = express.Router()
 
-// "localhost:5000/users/add" CREATE
-router.route('/add').post((req, res) => {
-    const username = req.body.username // username = client variable
+// CREATE ////////////////////////////
+router.post('/add', createUsers)
 
-    const newUser = new User({username}) // "object" as arguments for the class constructor
+// READ ////////////////////////////
+router.get('/', readUsers)
 
-    newUser.save() // it stores in db
-        .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json(`Error: ${err}`))
-})
-
-module.exports = router
+export default router

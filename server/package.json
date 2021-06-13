@@ -2,6 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
