@@ -1,4 +1,4 @@
-# Some screenshots
+# Some screenshots 
 
 ![](imgs/screenshot1.jpg)
 ![](imgs/screenshot2.jpg)
